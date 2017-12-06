@@ -1,0 +1,362 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[sf,small]{titlesec}
+\usepackage{array,dcolumn,psfrag,graphicx}
+\usepackage{booktabs,lscape}
+\usepackage{threeparttable}
+\usepackage{amsmath}
+\hoffset=-0.5cm
+\voffset=-1cm
+\textwidth=15cm
+\textheight=20.5cm
+
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\abstractname}{\ctxfr \large{摘要}}
+\ctxfdef{\section}{\ctxfbb}
+\ctxfdef{\subsection}{\ctxfbb}
+
+\newcommand\laref{\smallskip\noindent\hangindent=\parindent}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+\abovecaptionskip=6pt
+\belowcaptionskip=6pt
+
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\oldfootnote{%
+  \renewcommand\baselinestretch{1.15}%
+  \large\footnotesize\ignorespaces#1}}
+\addtolength{\footnotesep}{2pt}
+
+\title{\ctxfbb \Huge{實質匯率變動對台灣各產業別產出的影響}}
+\parskip=50pt
+\author{指導教授：張銘仁博士\\
+Department of
+Economics, National Dong Hwa University\\
+國立東華大學經濟學系教授\\
+\\
+\\
+\\
+呂靜宜 \\
+林宜霈 \\
+施姿伊 \\
+國立東華大學經濟系學士班三年級}
+\date{2018.01}
+\begin{document}
+\maketitle
+\vfill
+\parskip=-6pt
+\noindent   %不縮排
+{\ctxfbb 關鍵詞：}  匯率\\
+\thispagestyle{empty}
+
+\newpage
+\parskip=0pt
+\begin{abstract}
+\fontsize{12}{18pt}\selectfont
+
+%除此之外，我們亦參考Imbs, Mumtaz, Ravn and Rey (2005)與Midrigan (2007)的建議，考慮不同商品間可能會呈現出不同特性。
+%亦即，若不考量商品間的異質性(如，可貿易財與不可貿易財之間的差異)，而逕以整合價格進行估計，將有可能產生所謂的「整合偏誤」(aggregation bias)。
+%為求周延起見，本文亦使用了中位數不偏的縱橫資料(panel data)方法，更進一步推估PPP假說。在實證資料上，我們採用了1981:1至2007:10，
+%台灣與美國間相對產業別所計算出的各產業別實質匯率資料計17種，以實證觀察PPP在考慮了整合偏誤後是否得以成立。
+%實證結果顯示， 17種產業(商品)別間的PPP收斂速度的確存在明顯差異，換言之，由各產業價格所建構的實質匯率有明顯不同的半衰期(half-lives)，
+%且以非貿易財產業的的半衰期顯著地較長。此亦說明，傳統上將存在不同產業特性的價格資料整合計算出實質匯率以推估PPP的方法可能不恰當。
+%整體而言，本文為「購買力平價說謎團」的成因，提供若干適當的驗證與解釋。\\
+%
+自1973年世界主要國家採用浮動匯率後，很多的文獻都在探討匯率風險與出口貿易的關係。但無論是在實證研究或是理論推導上都沒有相同的結果。
+傳統貿易理論主張匯率風險的增加會負面影響國際貿易，匯率風險是影響出口廠商利潤的重要因素，較高的匯率風險會影響出口商的利潤。
+所以，按照風險趨避(risk  averse)概念，出口廠商面對匯率風險升高引發的高利潤風險，會減少貿易數量，降低未來收益的不確定性。\\
+\end{abstract}
+\thispagestyle{empty}
+
+\fontsize{12}{20pt}\selectfont
+
+
+%-------------------------------CH1+CH2-------------------------------
+\newpage
+\setcounter{page}{1}    %重新定義頁碼計數器
+\section[緒論與文獻回顧]{緒論與文獻回顧}
+台灣經濟長期仰賴進出口貿易，而經濟發展自50年代以來至今皆以出口為導向，占整體經濟比例超過一半以上。再加上國內市場狹小，
+因此台灣在國際貿易上的依存度相當高。在國際貿易當中與世界各國的交易必須要顧慮到匯率的波動問題，波動的起伏所造成匯率風險，
+是由於貿易國與國之間採取浮動匯率制度的關係，而此風險使得出口廠商的物料成本及未來收益帶來不確定性，增加了國際貿易的困難性。
+因匯率波動會影響出口廠商未來的收益，出口廠商雖然可以利用遠期匯率市場來預測匯率走勢進而降低匯率波動所帶來的風險，
+但不代表廠商可完全弭平匯率波動所帶來的風險，故匯率波動為影響出口決策的重要因素。由此可見，匯率波動對出口貿易的影響是不容小覷的。
+
+
+%-------------------------------CH3-------------------------------
+\section[計量方法]{計量方法}
+%-------------------------------CH3-1-------------------------------
+\subsection[資料來源和處理]{資料來源和處理}
+本文所使用的實證資料為自 1975年第一季〈Q1〉 至 2016年第四季〈Q4〉，其中包含台灣總體與7種產業部門的國內生產毛額（Gross Domestic Product, GDP）資料
+、台灣對外貿易額、台灣及其十大貿易對手國匯率資料，GDP平減指數以及 。
+7種產業部門分別為貿易類 : 食品飲料及菸草製造類、 衣著鞋襪及服飾、家具設備及家務維護，
+以及非貿易類 : 住宅服務、水電瓦斯及其他燃料、 醫療與保健、 娛樂、消遣與教育、交通及通訊
+, 見表 1 。 台灣對外貿易額用於找出觀察期間內台灣的十大貿易對手國，以及計算出各國貿易對手國所占貿易權重；匯率資料和
+GDP平減指數用於計算實質有效匯率〈REER〉。由於貿易對手國中包含德國且觀察期間橫跨德國馬克與歐元的使用，因此在德國匯率部分，
+在1999年Q1以前，我們以虛擬歐元匯率〈Global Insight, Inc.〉表示。
+台灣地區各產業的物價指數資料主要取樣自 Aremos 資料庫 ; 台灣前十大貿易對手國匯率資料以及新台幣兌美元的匯率資料則取樣
+自 Datastream 資料庫。 所有的資料都是當年度季資料。 此外 , 由於台灣、 十大貿易對手國間 , 物價指數
+所選用的基期 (base year) 不同 , 本文則先將所有地區物價資料加以調整並以 2010 年當作相同基期。
+%-------------------------------CH3-2-------------------------------
+\subsection[選取十大貿易對手國及權重計算]{選取十大貿易對手國及權重計算}
+由於需要計算有效匯率, 首要之務便是針對台灣的前十大貿易對手國，計算其權重。權重的計算是由每年台灣對各國家的貿易額佔台灣每年貿易總值的比例進行加總，
+得到前十大貿易對手國的對台灣貿易的佔比；並以每年各國家的比例除以前十大貿易對手國每年的佔比，得到各國家每年的權重。此外，
+根據GDP平減指數的取得狀況，於其國家的起始時間，方加入十大貿易對手國對台灣貿易佔比，例如：1994年為日本GDP平減指數的資料起始時間，
+將當年度台灣與日本的貿易比例加入台灣與前十大貿易對手國的貿易比例中，也從當年度開始計算其權重。
+\begin{equation}
+TRT_{tj}=\frac{TVTT_{tj}}{TV_{t}}\mbox{, }
+\end{equation}
+其中，TRT(Trade ratio with Taiwan )表示與台貿易比例，TVTT(Trade Value of Trade with Taiwan)表示與台貿易額，
+TV(Total Value of Trade)表示該國從%1975-2016年間的貿易總額。
+\begin{equation}
+W_{tj}=\frac{TRT_{tj}}{Sum_i},\;\;\;\;\;\; j=1,2,...10\mbox{, }
+\end{equation}
+其中$W_{tj}$表示第t期j國對台灣的貿易權重〈Weight〉，Sum(Sum of Top Ten's Trade ratio with Taiwan)表示前十大貿易對手國與台灣的貿易加總
+%-------------------------------CH3-3-----------------------------
+\subsection[建構名目有效匯率]{建構名目有效匯率}
+在建構名目匯率的過程中，
+\begin{equation}
+S_{t}=\sum\limits^{10}_{j=1}{W_{tj}}{E_{tj}},\;\;\;\;\;\; j=1,2,...10\mbox{, }
+\end{equation}
+其中 $S_{t}$代表的是我國第t期的名目有效匯率(Nominal Effective Exchange Rate, NEER)，$E_{tj}$為以本國貨幣表示j國貨幣的名目匯率。
+%-------------------------------CH3-4-----------------------------
+\subsection[建構實質有效匯率]{建構實質有效匯率}
+\begin{equation}
+Q_{t}=\sum\limits^{10}_{j=1}{S_{t}}(\frac{P_{tj}}{P_{ti}}),\;\;\;\;\;\; j=1,2,...10\mbox{, }
+\end{equation}
+其中$Q_{t}$代表我國第t期的實質有效匯率，$P_{tj}$為第t期j國的GDP平減指數(GDP deflactor)，
+$P_{ti}$則為本國的GDP平減指數。
+%-------------------------------CH3-5-----------------------------
+\subsection[OLS回歸估計式]{OLS回歸估計式}
+\begin{equation}
+lnGDP_{tk}=\alpha_{0}+\alpha_{1}{lnQ_{t}}+\epsilon_{t},\;\;\;\;\;\; k=1,2,...8\mbox{, }
+\end{equation}
+其中$\alpha_{0}$表示常數項，$lnGDP_{tk}$，k=1代表食品飲料及菸草製造類；k=2表示衣著鞋襪及服飾類；k=3表示住宅服務、水電瓦斯及其他燃料類；k=4表示家具設備及家務維護；
+k=5表示醫療與保健；k=6表示娛樂、消遣與教育；k=7表示交通及通訊；k=8表示當期全國總值。$\epsilon_{t}$表示殘差項。
+%-------------------------------CH3-6-----------------------------
+\subsection[Balassa-Samuelson效應]{Balassa-Samuelson效應}
+\begin{equation}
+lnQ_{t}=\alpha_{0}+\beta{lnGDP_{t}}+\epsilon_{t}\mbox{, }
+\end{equation}
+%-------------------------------CH3-7-----------------------------
+\subsection[干預變數]{干預變數}
+%-------------------------------CH3-7-1-----------------------------
+\subsubsection[第一項干預變數]{第一項干預變數}
+\begin{equation}
+R_{i}=\frac{Net_{i}-Gov. Deposits_{i}}{e_{i}}
+\end{equation}
+其中，$Net_{i}$為$Foreign Assets_{i}-Foreign Liability_{i}$\\
+i為季資料
+%-------------------------------CH3-7-2-----------------------------
+\subsubsection[第二項干預變數]{第二項干預變數}
+\begin{equation}
+Int1_{t}=\sum\limits^{4}_{j=1}\frac{R_{t,i}-R_{t,t-1}}{\frac{MB_{t,t-1}}{e_{t,t-1}}}
+\end{equation}
+其中，$MB_{t,t-1}$中的MB為money base，
+%-------------------------------CH3-7-3-----------------------------
+\subsubsection[第三項干預變數]{第三項干預變數}
+\begin{equation}
+R2_{i}=\frac{Net_{i}-Gov. Deposits_{i}}{M2_{i}}
+\end{equation}
+%-------------------------------CH3-7-4-----------------------------
+\subsubsection[第四項干預變數]{第四項干預變數}
+\begin{equation}
+In2_{t}=\sum\limits^{4}_{j=1}(R_{2t,i}-R_{2t,t-1})\mbox{, }
+\end{equation}
+%-------------------------------CH4-------------------------------
+\section[實證結果]{實證結果}
+
+%-------------------------------CH5-------------------------------
+\section[結論]{結論}
+
+
+
+%-------------------------------參考文獻-------------------------------
+\clearpage
+\addcontentsline{toc}{section}{參考文獻}
+\section*{參考文獻}
+\laref 方文碩,  賴奕豪, 2001,  匯率風險對出口貿易之衝擊,臺灣金融財務季刊2,83-101。
+
+\laref 方文碩,  田志遠, 2001,  匯率貶值對股票市場的衝擊--雙變量 GARCH-M 模型,臺灣金融財務季刊2, 99-117。
+
+\laref 何碧蘭、陳天志、蔡孟易, 2013, 匯率變動對貿易出口影響之研究－以台灣機電類對四大國之出口值為例
+
+\laref 陳旭昇, 2016,  解構台灣央行幣與外匯政策的它大迷思,  講稿,  台灣大學。
+
+
+\laref 陳旭昇,  吳聰敏, 2008,  台灣匯率制度初探,經濟論文叢刊36, 147-182。
+
+\fontsize{10}{14pt}\selectfont
+\laref Chen,  S.-S.,  2017,  Exchange  rate  undervaluation  and  activity,  Journal  of
+International Money and Finance 72, 148-160
+
+\laref Connolly, M. and K.M. Yi, 2015, How much of South Korea's growth miracle can
+be explained by trade policy? American Economic Journal: Macroeconomics 7, 188-
+221.
+
+\laref Cumperayot, P. and R. Kouwenberg , 2016, Currency wars: Who gains from the
+battle?, Chulalongkorn University, Working Papers.
+
+\laref Daude, C., E.L. Yeyati and A.J. Nagengast, 2016, On the effectiveness of exchange
+rate interventions in emerging markets, Journal of International Money and Finance
+64, 239-261
+
+\laref Gonçalves,  C.E.S.  and  M.  Rodrigues,  2017,  Exchange  rate  misalignment  and
+growth: A myth? Universidade de São Paulo, working papers.
+
+\laref Habib, M.M., E. Mileva and L. Stracca, 2017, The real exchange rate and economic
+growth: Revisiting the case using external instruments, Journal of International Money
+and Finance 73, 386–398.
+
+\laref Levy-Yeyati,  E.,  F.  Sturzenegger,  P.A.  Gluzmann,  2013,  Fear  of  appreciation.
+Journal of Development Economics 101, 233-247
+
+\laref Papanikos, G.T., 2015, The real exchange rate of euro and Greek economic growth,
+Journal of Economic Asymmetries 12, 100-109.
+
+\laref Pham, D., S. Delpachitra, 2014, Does real exchange rate Depreciation boost capital
+accumulation? An intertemporal analysis, Australian Economic Papers 53, 230–244.
+
+\laref Pillai,  K.R.,  2017,  Is  depreciation  an  antecedent  to  economic  growth?  Indian
+experience, Journal of Contemporary Management Research 11, 27-43.
+
+\laref Rodrik, D., 2008, The real exchange rate and economic growth, Brookings Papers
+on Economic Activity 365-417.
+
+\laref Tang, B., 2015, Real exchange rate and economic growth in China: A cointegrated
+VAR approach, China Economic Review 34, 293-310.
+
+\laref Wong,  H.T.,  2013,  Real  exchange  rate  misalignment  and  economic  growth  in
+Malaysia, Journal of Economic Studies 40, 298-313.
+
+\laref Yan,  H.D.,  L.J.  Chen  and  Y.H.  Tseng,  2014,  Capital  inflow,  foreign  exchange
+intervention,  and  currency  misalignment  in  emerging  market  countries,  China
+Economic Policy Review 3.
+
+\laref Yan,  H.D.  and  C.  Yang,  2012,  Does  an  undervalued  currency  merit  economic
+growth?: Evidence from Taiwan, Panoeconomicus 59, 37-57.
+
+
+
+
+
+\clearpage
+\tabcolsep=14pt
+\renewcommand{\baselinestretch}{1.10}
+\newcolumntype{.}[1]{D{.}{.}{#1}}
+\begin{table}
+\begin{center}
+\begin{threeparttable}
+\caption{前十大貿易對手國匯率之敘述統計量}\label{}
+\fontsize{10}{12pt}
+\selectfont
+\begin{tabular}{lccccc}
+\toprule
+項目          &平均值 &中位數  &最大值  &最小值 &標準差       \\
+\midrule
+{\ctxfbb 名目匯率}&&&&&\\
+\;\;澳幣          &32.55  & 28.91  & 56.95  & 16.20 & 11.27  \\
+\;\;人民幣        & 10.87 & 7.68   & 25.04  & 2.51  & 7.06  \\
+\;\;歐元          & 21.41 & 16.34  & 48.22  & 9.52  & 11.81 \\
+\;\;港幣          & 5.27  & 4.43   & 8.24   & 3.17  & 1.58  \\
+\;\;日圓          & 0.21  & 0.20   & 0.39   & 0.11  & 0.08  \\
+\;\;韓圜          & 0.08  & 0.03   & 0.80   & 0.01  & 0.10   \\
+\;\;馬來西亞令吉  & 1.90  & 11.07  & 17.51  & 6.89  & 2.89  \\
+\;\;沙烏地阿拉伯幣& 133.37& 125.54 & 180.00 & 92.86 & 27.34\\
+\;\;新加坡幣      & 17.48 & 17.12  & 24.13  & 13.01 & 3.51  \\
+\;\;美元          & 32.42 & 34.58  & 40.47  & 24.76 & 4.86  \\
+{\ctxfbb 實質匯率}&&&&&\\
+
+{\ctxfbb 七大產業別}&&&&&\\
+\;\;食品菸草      &222745 &224006.5  &334085  &108560 &73900.4  \\
+\;\;衣著服飾      &54159  &61573.5   &104043  &4960   &31946.9   \\
+\;\;住宅水電      &215535 &242140.5  &392787  &39569  &115677.6  \\
+\;\;家具家務      &53054  &48038.5   &111237  &10702  &34576     \\
+\;\;醫療保健      &44478  &40154.5   &92718   &9893   &26696.5 \\
+\;\;娛樂教育      &149996 &140386.5  &295456  &28963  &76531.1  \\
+\;\;交通通訊      &182817 &198804.5  &407103  &7502   &118616.4  \\
+{\ctxfbb 干預變數}&&&&&\\
+\;\;R             &145.86&87.675&32.7 &-0.11  &142.72\\
+\;\;Int1          &0.34  &0.09  &2.50 &-0.278 &0.576\\
+\;\;R2            &0.264 &0.28  &0.54 &-0.01  &0.11\\
+\;\;Int2          &0.005 &-0.001&0.166&-0.116 &0.049\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\fontsize{8}{10pt}\selectfont
+\item[]註: 項目欄中個幣別排列順序係依照各國國名英語縮寫名之字首排列。
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+
+
+\clearpage
+\tabcolsep=18pt
+\renewcommand{\baselinestretch}{1.10}
+\newcolumntype{.}[1]{D{.}{.}{#1}}
+\tabcolsep=10pt
+\begin{table}
+\begin{center}
+\begin{threeparttable}
+\caption{敘述統計量}\label{}
+\fontsize{12}{12pt}
+\selectfont
+\begin{tabular}{lccccc}
+\toprule
+                           &$\alpha_{0}$&$\alpha_{1}$&$\bar{R}^2$  &DW-Test &F-Test \\[-2pt]
+\hline
+\;\;整體GDP                &$17.32^{***}$    &$-1.12^{***} $       & 0.36     &0.36    &0.36\\
+                           &  (0.31)       &   (0.12)        &        &&\\
+{\ctxfbb 貿易類}&&&&\\
+\;\;食品菸草               &$14.63^{***}$    &$-0.89^{***}$        & 0.55    &0.06   &202.18    \\
+                           &  (0.17)       & (0.06)          &&&    \\
+\;\;衣著服飾               &$16.69^{***}$    &$-2.27^{***}$        &0.61    &0.15      &262.26    \\
+                            & (0.37)        &  (0.14)        &&& \\
+\;\;家具家務               &$15.85^{***}$    &$-1.96^{***} $       &0.54 &0.05    &198.9         \\
+                           &  (0.37)        &(0.14)            &&&        \\
+{\ctxfbb 非貿易類}&&&&\\
+\;\;住宅水電               & $16.90^{***}$   & $-1.81^{***}$       &0.58    &0.05    &232.07\\
+                            &  (0.32)      & (0.12)           &&&          \\
+\;\;醫療保健               & $14.66^{***}$   &$-1.57^{***}$        &0.45   &0.13    &138.34\\
+                            &  (0.36)     &  (0.13)         &&&           \\
+\;\;娛樂教育               & $15.29^{***}$   &$-1.32^{***}$       &0.45    &0.12    &137.96      \\
+                             & (0.3)      &   (0.11)          &&&                            \\
+\;\;交通通訊               & $18.94^{***}$   &$-2.71^{***}$        &0.54    &0.05    &195.77\\
+                             & (0.52)       & (0.19)        &&&                             \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\fontsize{8}{10pt}\selectfont
+\item[]註:食品菸草為食品飲料及菸草製造類；衣著服飾為衣著鞋襪及服飾；住宅水電為住宅服務、水電瓦斯及其他燃料；家具家務為家具設備及家務維護；
+醫療保健為醫療與保健；娛樂教育為娛樂、消遣與教育；交通通訊為交通及通訊
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+\clearpage
+\hoffset=-2cm\voffset=1cm
+\begin{landscape}
+\begin{figure}
+\includegraphics[width=0.9\textwidth,height=0.6\textheight]{weight.jpg}
+\begin{center}
+
+\end{center}
+\begin{minipage}{\textwidth}
+\caption{台灣貿易}
+\fontsize{11}{12pt}\selectfont
+說明: 實線部分為各產業所表示之實質匯率衝擊反應函數，虛線部分為其95\%信賴區間。
+\end{minipage}
+\end{figure}
+\end{landscape}
+
+
+
+\bibliographystyle{ter}
+\bibliography{edubib}
+\end{document}
